@@ -2,13 +2,13 @@ const Prompt = require('../lib/Prompt');
 const Employee = require('../lib/Employee');
 
 const generateEmployee = employee => {
-
+  console.log(employee.team.name)
   //this.employee = new Employee(name, id, email);
   //console.log(this.employee.getName());
 
   return `
         <div>
-        ${employee.getName()}
+        ${employee.team.name}
         </div>
   `
 }
