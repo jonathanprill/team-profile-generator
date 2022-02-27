@@ -4,7 +4,7 @@ const Employee = require('../lib/Employee');
 const generateEmployee = employee => {
 
   //this.employee = new Employee(name, id, email);
-  console.log(this.employee.getName());
+  //console.log(this.employee.getName());
 
   return `
         <div>
