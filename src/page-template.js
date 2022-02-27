@@ -1,23 +1,23 @@
 const Prompt = require('../lib/Prompt');
 const Employee = require('../lib/Employee');
 
-const generateEmployee = employeeData => {
+const generateEmployee = employee => {
 
   //this.employee = new Employee(name, id, email);
   //console.log(this.employee.getName());
 
   return `
         <div>
-        ${employeeData.getName()}
+        ${employee.getName()}
         </div>
   `
 }
 //${employee.getRole()}
-module.exports = employeeData => {
+module.exports = employee => {
     //(organized into 3 separate sets of data)destructure projects and about data from tempalteData based on their property key names
     
 
-    //const { employeeData } = templateData;
+    //const { employee } = templateData;
       //this.employee = employee;
       
      // console.log(employee.getName());
@@ -39,7 +39,7 @@ module.exports = employeeData => {
     </head>
   
     <body>
-    ${generateEmployee(employeeData)}
+    ${generateEmployee(employee)}
       <header>
         <div class="container flex-row justify-space-between align-center py-3">
           <h1 class="page-title text-secondary bg-dark py-2 px-3"></h1>
