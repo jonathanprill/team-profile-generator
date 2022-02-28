@@ -3,7 +3,7 @@ const Employee = require('../lib/Employee');
 //${employee.team.name}
 
 const generateEmployee = dataThree => {
-  console.log(dataThree)
+  //console.log(dataThree)
   //this.employee = new Employee(name, id, email);
   //console.log(this.employee.getName());
 
