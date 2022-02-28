@@ -1,8 +1,9 @@
 const Prompt = require('../lib/Prompt');
 const Employee = require('../lib/Employee');
 //${employee.team.name}
-const generateEmployee = employee => {
-  //console.log(employee.team.name)
+
+const generateEmployee = dataThree => {
+  console.log(dataThree)
   //this.employee = new Employee(name, id, email);
   //console.log(this.employee.getName());
 
@@ -39,7 +40,7 @@ module.exports = employee => {
     </head>
   
     <body>
-    
+    ${generateEmployee(employee)}
       <header>
         <div class="container flex-row justify-space-between align-center py-3">
           <h1 class="page-title text-secondary bg-dark py-2 px-3"></h1>
