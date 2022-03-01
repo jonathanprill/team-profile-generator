@@ -1,30 +1,81 @@
 const Prompt = require('../lib/Prompt');
 const Employee = require('../lib/Employee');
+const Manager = require('../lib/Manager');
+
 //${employee.team.name}
 
-const generateEmployee = dataThree => {
-  //console.log(dataThree)
-  //this.employee = new Employee(name, id, email);
-  //console.log(this.employee.getName());
-
+//////////////Generate Manager//////////////////
+const generateManager = teamArr => {
+  //console.log(teamArr)
+ 
   return `
-        <div>
+        ${teamArr
+          .filter(({ office }) => office)
+          .map(({ name, id, email, office }) => {
+            return ` 
+            <article class="project-article" style="border-top-color:#08fdd8;">
+                <div class="project-content">
+                    <div class="post-data" style="color:#08fdd8;"><span class="oi oi-briefcase">Manager</div>
+                    <h5 class="post-title">${name}</h5>
+                    <div class="post-desc">ID: ${id} <br> Email: ${email} <br> Office: ${office}</div>
+                </div>
+            </article>
+          `;
+          })
+          .join('')}
         
-        </div>
   `
 }
+
+//////////////Generate Engineer//////////////////
+const generateEngineer = teamArr => {
+  //console.log(teamArr)
+ 
+  return `
+        ${teamArr
+          .filter(({ github }) => github)
+          .map(({ name, id, email, github }) => {
+            return `
+            <article class="project-article" style="border-top-color:#FD2155;">
+                <div class="project-content">
+                    <div class="post-data" style="color:#FD2155;"><span class="oi oi-cog"></span>Engineer</div>
+                    <h5 class="post-title">${name}</h5>
+                    <div class="post-desc">ID: ${id} <br> Email: ${email} <br> Github: ${github}</div>
+                </div>
+            </article>
+          `;
+          })
+          .join('')}
+        
+  `
+}
+
+//////////////Generate Intern//////////////////
+const generateIntern = teamArr => {
+  //console.log(teamArr)
+ 
+  return `
+        ${teamArr
+          .filter(({ school }) => school)
+          .map(({ name, id, email, school }) => {
+            return `
+            <article class="project-article" style="border-top-color:#E4EE89;">
+                <div class="project-content">
+                    <div class="post-data" style="color:#E4EE89;"><span class="oi oi-signal"></span>Intern</div>
+                    <h5 class="post-title">${name}</h5>
+                    <div class="post-desc">ID: ${id} <br> Email: ${email} <br> School: ${school}</div>
+                </div>
+            </article>
+          `;
+          })
+          .join('')}
+        
+  `
+}
+
 //${employee.getRole()}
 module.exports = employee => {
-    //(organized into 3 separate sets of data)destructure projects and about data from tempalteData based on their property key names
-    
-
-    //const { employee } = templateData;
-      //this.employee = employee;
-      
-     // console.log(employee.getName());
-    
-
-     //${generateEmployee(employee)}
+   
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -36,26 +87,38 @@ module.exports = employee => {
       <title>Portfolio Demo</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
       <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
       <link rel="stylesheet" href="style.css">
     </head>
+
+    
   
     <body>
-    ${generateEmployee(employee)}
+    
       <header>
-        <div class="container flex-row justify-space-between align-center py-3">
-          <h1 class="page-title text-secondary bg-dark py-2 px-3"></h1>
-          <nav class="flex-row">
-            <a class="ml-2 my-1 px-2 py-1 bg-secondary text-dark" href="https://github.com/">}</a>
-          </nav>
-        </div>
-      </header>
-      <main class="container my-5">
+       
+          <h1 class="page-title text-secondary bg-dark py-2 px-3">Team Generator</h1>
         
-      </main>
-      <footer class="container text-center py-3">
-        <h3 class="text-dark">&copy;  by </h3>
-      </footer>
+      </header>
+      
+      <section class="section-project">
+        <div class="project-articles">
+          ${generateManager(employee)}
+          ${generateEngineer(employee)}
+          ${generateIntern(employee)}
+        <div>
+      </section>
+
     </body>
     </html>
     `;
   };
+
+
