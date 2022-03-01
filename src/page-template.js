@@ -6,7 +6,7 @@ const Manager = require('../lib/Manager');
 
 //////////////Generate Manager//////////////////
 const generateManager = teamArr => {
-  //console.log(teamArr)
+  console.log(teamArr)
  
   return `
         ${teamArr
