@@ -1,6 +1,7 @@
 const Prompt = require('../lib/Prompt');
 const Employee = require('../lib/Employee');
 const Manager = require('../lib/Manager');
+const Engineer = require('../lib/Engineer');
 
 //${employee.team.name}
 
@@ -11,11 +12,11 @@ const generateManager = teamArr => {
   return `
         ${teamArr
           .filter(({ office }) => office)
-          .map(({ name, id, email, office }) => {
+          .map(({ name, id, email, office, getRole }) => {
             return ` 
             <article class="project-article" style="border-top-color:#08fdd8;">
                 <div class="project-content">
-                    <div class="post-data" style="color:#08fdd8;"><span class="oi oi-briefcase">Manager</div>
+                    <div class="post-data" style="color:#08fdd8;"><span class="oi oi-briefcase"></span>${getRole()}</div>
                     <h5 class="post-title">${name}</h5>
                     <div class="post-desc">ID: ${id} <br> Email: ${email} <br> Office: ${office}</div>
                 </div>
@@ -34,11 +35,11 @@ const generateEngineer = teamArr => {
   return `
         ${teamArr
           .filter(({ github }) => github)
-          .map(({ name, id, email, github }) => {
+          .map(({ name, id, email, github, getRole }) => {
             return `
             <article class="project-article" style="border-top-color:#FD2155;">
                 <div class="project-content">
-                    <div class="post-data" style="color:#FD2155;"><span class="oi oi-cog"></span>Engineer</div>
+                    <div class="post-data" style="color:#FD2155;"><span class="oi oi-cog"></span>${getRole()}</div>
                     <h5 class="post-title">${name}</h5>
                     <div class="post-desc">ID: ${id} <br> Email: ${email} <br> Github: ${github}</div>
                 </div>
@@ -57,11 +58,11 @@ const generateIntern = teamArr => {
   return `
         ${teamArr
           .filter(({ school }) => school)
-          .map(({ name, id, email, school }) => {
+          .map(({ name, id, email, school, getRole }) => {
             return `
             <article class="project-article" style="border-top-color:#E4EE89;">
                 <div class="project-content">
-                    <div class="post-data" style="color:#E4EE89;"><span class="oi oi-signal"></span>Intern</div>
+                    <div class="post-data" style="color:#E4EE89;"><span class="oi oi-signal"></span>${getRole()}</div>
                     <h5 class="post-title">${name}</h5>
                     <div class="post-desc">ID: ${id} <br> Email: ${email} <br> School: ${school}</div>
                 </div>
